@@ -7,20 +7,20 @@ Inspiration - Demis Bellot's [Kotlin LINQ examples](https://github.com/mythz/kot
 ## Status
 
 - [x] Restriction Operators
-- [] Projection Operators
-- [] Partitioning Operators
-- [] Ordering Operators
-- [] Grouping Operators
-- [] Set Operators
-- [] Converstion Operators
-- [] Element Operators
-- [] Generation Operators
-- [] Quantifiers
-- [] Aggregate Operators
-- [] Miscellaneous Operators
-- [] Custom Sequence Operators
-- [] Query Execution
-- [] Join Operators
+- [ ] Projection Operators
+- [ ] Partitioning Operators
+- [ ] Ordering Operators
+- [ ] Grouping Operators
+- [ ] Set Operators
+- [ ] Converstion Operators
+- [ ] Element Operators
+- [ ] Generation Operators
+- [ ] Quantifiers
+- [ ] Aggregate Operators
+- [ ] Miscellaneous Operators
+- [ ] Custom Sequence Operators
+- [ ] Query Execution
+- [ ] Join Operators
 
 
 ## Installing and running
