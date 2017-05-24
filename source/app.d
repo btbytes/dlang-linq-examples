@@ -2,6 +2,7 @@ import std.stdio;
 
 import data;
 import restriction;
+import projection;
 
 void main()
 {
@@ -32,4 +33,24 @@ void main()
     writeln("\nShort digits:");
     foreach (d; linq5())
         writefln("The word %s is shorter than it's value", d);
+
+    writeln("\nNumbers + 1:");
+    foreach (n; linq6())
+        writeln(n);
+
+    writeln("\nProduct Names:");
+    foreach (p; linq7())
+        writeln(p);
+
+    writeln("\nNumber strings:");
+    foreach (ns; linq8())
+        writeln(ns);
+
+    writeln("\nAnonymous Types 1");
+    foreach (tup; linq9())
+        writefln("Uppercase: %s, Lowercase: %s", tup[0], tup[1]);
+
+    writeln("\nAnonymous Types 2");
+    foreach (tup; linq10())
+        writefln("The digit %s is %s", tup[0], tup[1] ? "even" : "odd");
 }
