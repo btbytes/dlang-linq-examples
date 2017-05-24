@@ -1,0 +1,9 @@
+{
+	"name": "dlang-linq-examples",
+	"authors": [
+		"Pradeep Gowda"
+	],
+	"description": "101 LINQ examples in D",
+	"copyright": "Copyright © 2017, Pradeep Gowda",
+	"license": "Boost"
+}
