@@ -53,4 +53,9 @@ void main()
     writeln("\nAnonymous Types 2");
     foreach (tup; linq10())
         writefln("The digit %s is %s", tup[0], tup[1] ? "even" : "odd");
+
+    writeln("\nAnonymous Types 3");
+    foreach (p; linq11())
+        writefln("%s is in the category %s and costs %s per unit.",
+                p.productName, p.category, p.unitPrice);
 }

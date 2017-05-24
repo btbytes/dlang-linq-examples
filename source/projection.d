@@ -64,6 +64,16 @@ auto linq10()
 
 }
 
+/** Select - Anonymous Types 3
+* This sample uses select to produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
+*/
+auto linq11()
+{
+    Product[] products = getProducts();
+    alias ProductInfo = Tuple!(string, "productName", string, "category", double, "unitPrice");
+    return map!(a => ProductInfo(a.productName, a.category, a.unitPrice))(products);
+}
+
 unittest
 {
     assert(equal(linq6(), [6, 5, 2, 4, 10, 9, 7, 8, 3, 1]));
