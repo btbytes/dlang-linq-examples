@@ -1,8 +1,9 @@
 import std.algorithm;
 import std.array;
 import std.stdio;
-import data;
 import std.stdio;
+import std.range;
+import data;
 
 /** $(BIG Restriction Operators) */
 
@@ -75,5 +76,5 @@ unittest
 
 unittest
 {
-    assert(linq5().equal(["five", "six", "seven", "eight", "nine"]));  
+    assert(linq5().equal(["five", "six", "seven", "eight", "nine"]));
 }
