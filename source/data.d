@@ -1,3 +1,10 @@
+import std.conv;
+import std.datetime;
+import std.file;
+import std.stdio;
+import std.string;
+import std.xml;
+
 struct Product
 {
     int productID;
@@ -6,6 +13,69 @@ struct Product
     double unitPrice;
     int unitsInStock;
 
+}
+
+struct Order
+{
+    int orderID;
+    DateTime orderDate;
+    double total;
+}
+
+struct Customer
+{
+    string customerID;
+    string companyName;
+    string address;
+    string city;
+    string region;
+    string postalCode;
+    string country;
+    string phone;
+    string fax;
+    Order[] orders;
+}
+
+Customer[] getCustomerList()
+{
+    string s = cast(string) std.file.read("data/Customers.xml");
+    check(s);
+    Customer[] customers;
+    auto xml = new DocumentParser(s);
+    xml.onStartTag["customer"] = (ElementParser xml) {
+        Customer customer;
+        xml.onEndTag["id"] = (in Element e) { customer.customerID = e.text(); };
+        xml.onEndTag["name"] = (in Element e) { customer.companyName = e.text(); };
+        xml.onEndTag["address"] = (in Element e) { customer.address = e.text(); };
+        xml.onEndTag["city"] = (in Element e) { customer.city = e.text(); };
+        xml.onEndTag["region"] = (in Element e) { customer.region = e.text(); };
+        xml.onEndTag["postalcode"] = (in Element e) {
+            customer.postalCode = e.text();
+        };
+        xml.onEndTag["country"] = (in Element e) { customer.country = e.text(); };
+        xml.onEndTag["phone"] = (in Element e) { customer.phone = e.text(); };
+        xml.onEndTag["fax"] = (in Element e) { customer.fax = e.text(); };
+        xml.onStartTag["order"] = (ElementParser od) {
+            Order order;
+            od.onEndTag["id"] = (in Element e) {
+                order.orderID = to!(int)(e.text());
+            };
+
+            od.onEndTag["orderdate"] = (in Element e) {
+                order.orderDate = DateTime.fromISOExtString(e.text());
+            };
+            od.onEndTag["total"] = (in Element e) {
+                order.total = to!(double)(e.text());
+            };
+            od.parse();
+            customer.orders ~= order;
+        };
+        xml.parse();
+        customers ~= customer;
+
+    };
+    xml.parse();
+    return customers;
 }
 
 Product[] getProducts()
