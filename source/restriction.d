@@ -55,16 +55,7 @@ auto linq5()
     string[] digits = [
         "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
     ];
-    string[] shorts;
-    foreach (i, digit; digits)
-    {
-        if (digit.length < i)
-        {
-            shorts ~= digit;
-        }
-    }
-    return shorts;
-
+    return digits.enumerate.filter!(e => e.value.length < e.index).map!(e => e.value);
 }
 
 unittest
@@ -80,4 +71,9 @@ unittest
 unittest
 {
     assert(linq3().length == 72);
+}
+
+unittest
+{
+    assert(linq5().equal(["five", "six", "seven", "eight", "nine"]));  
 }
