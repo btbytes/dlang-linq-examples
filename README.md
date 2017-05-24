@@ -4,6 +4,9 @@ Original - [LINQ samples](https://code.msdn.microsoft.com/101-LINQ-Samples-3fb98
 
 Inspiration - Demis Bellot's [Kotlin LINQ examples](https://github.com/mythz/kotlin-linq-examples).
 
+Reference - See [Sebastian Wilzbach's "Feature mapping from LINQ to D Ranges" repo](https://github.com/wilzbach/linq).
+
+
 ## Status
 
 - [x] Restriction Operators
