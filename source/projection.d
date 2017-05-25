@@ -101,6 +101,18 @@ auto linq13()
     return map!(a => digits[a])(filter!(a => a < 5)(numbers));
 }
 
+/** SelectMany - Compound from 1
+* This sample uses a compound from clause to make a query that returns all pairs of numbers from both arrays such
+* that the number from numbersA is less than the number from numbersB.
+*/
+
+auto linq14()
+{
+    int[] numbersA = [0, 2, 4, 5, 6, 8, 9];
+    int[] numbersB = [1, 3, 5, 7, 8];
+    return filter!(a => a[0] < a[1])(zip(numbersA, numbersB));
+}
+
 unittest
 {
     assert(equal(linq6(), [6, 5, 2, 4, 10, 9, 7, 8, 3, 1]));

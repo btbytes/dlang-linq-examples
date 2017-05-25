@@ -66,4 +66,8 @@ void main()
     writeln("\nNumbers < 5:");
     foreach (n; linq13())
         writeln(n);
+
+    writeln("\nPairs where a < b:");
+    foreach (t; linq14())
+        writefln("%s is less than %s", t[0], t[1]);
 }
