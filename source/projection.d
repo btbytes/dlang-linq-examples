@@ -2,6 +2,7 @@
 
 import std.algorithm;
 import std.array;
+import std.range;
 import std.typecons;
 import std.uni;
 import data;
@@ -67,11 +68,37 @@ auto linq10()
 /** Select - Anonymous Types 3
 * This sample uses select to produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
 */
+
 auto linq11()
 {
     Product[] products = getProducts();
+    // this is not exaclty "anonymous type", is it :)
     alias ProductInfo = Tuple!(string, "productName", string, "category", double, "unitPrice");
     return map!(a => ProductInfo(a.productName, a.category, a.unitPrice))(products);
+}
+
+/** Select - Indexed
+* This sample uses an indexed Select clause to determine if the value of ints in an array match their position in the array.
+*/
+
+auto linq12()
+{
+    int[] numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
+    return zip(numbers, numbers.enumerate.map!(a => a.value == numbers[a.value]));
+
+}
+
+/** Select - Filtered
+* This sample combines select and where to make a simple query that returns the text form of each digit less than 5.
+*/
+
+auto linq13()
+{
+    int[] numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
+    string[] digits = [
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+    ];
+    return map!(a => digits[a])(filter!(a => a < 5)(numbers));
 }
 
 unittest
@@ -92,5 +119,5 @@ unittest
 
 unittest
 {
-    // assert(equal(linq9(), )
+
 }

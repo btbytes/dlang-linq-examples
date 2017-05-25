@@ -58,4 +58,12 @@ void main()
     foreach (p; linq11())
         writefln("%s is in the category %s and costs %s per unit.",
                 p.productName, p.category, p.unitPrice);
+
+    writeln("\nNumber: In-place?");
+    foreach (n; linq12())
+        writefln("%s: %s", n[0], n[1]);
+
+    writeln("\nNumbers < 5:");
+    foreach (n; linq13())
+        writeln(n);
 }

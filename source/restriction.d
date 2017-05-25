@@ -71,10 +71,5 @@ unittest
 
 unittest
 {
-    // assert(linq3().length == 77);
-}
-
-unittest
-{
     assert(linq5().equal(["five", "six", "seven", "eight", "nine"]));
 }
