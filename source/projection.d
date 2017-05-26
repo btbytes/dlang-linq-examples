@@ -113,6 +113,17 @@ auto linq14()
     return filter!(a => a[0] < a[1])(zip(numbersA, numbersB));
 }
 
+/** SelectMany - Compound from 2
+* This sample uses a compound from clause to select all orders where the order total is less than 500.00.
+*/
+
+auto linq15()
+{
+    auto customers = getCustomerList();
+    return customers.map!(c => c.orders.filter!(it => it.total < 500.0)
+            .map!(x => tuple(c.customerID, x.orderID, x.total))).joiner();
+}
+
 unittest
 {
     assert(equal(linq6(), [6, 5, 2, 4, 10, 9, 7, 8, 3, 1]));

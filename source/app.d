@@ -70,4 +70,8 @@ void main()
     writeln("\nPairs where a < b:");
     foreach (t; linq14())
         writefln("%s is less than %s", t[0], t[1]);
+
+    writeln("\nOrders where order total is less than 500.0");
+    foreach (o; linq15())
+        writefln("CustomerID=%s OrderID=%d Total=%.2f", o[0], o[1], o[2]);
 }
