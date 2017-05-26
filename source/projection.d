@@ -2,6 +2,7 @@
 
 import std.algorithm;
 import std.array;
+import std.datetime;
 import std.range;
 import std.typecons;
 import std.uni;
@@ -122,6 +123,17 @@ auto linq15()
     auto customers = getCustomerList();
     return customers.map!(c => c.orders.filter!(it => it.total < 500.0)
             .map!(x => tuple(c.customerID, x.orderID, x.total))).joiner();
+}
+
+/** SelectMany - Compound from 3
+* This sample uses a compound from clause to select all orders where the order was made in 1998 or later.
+*/
+
+auto linq16()
+{
+    auto customers = getCustomerList();
+    return customers.map!(c => c.orders.filter!(it => it.orderDate > DateTime(1998,
+            1, 1)).map!(x => tuple(c.customerID, x.orderID, x.orderDate))).joiner();
 }
 
 unittest
