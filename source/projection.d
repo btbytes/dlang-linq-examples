@@ -148,6 +148,21 @@ auto linq17()
 
 }
 
+/** SelectMany - Multiple from
+* This sample uses multiple from clauses so that filtering on customers can be done
+* before selecting their orders. This makes the query more efficient by not selecting
+* and then discarding orders for customers outside of Washington.
+*/
+
+auto linq18()
+{
+    auto customers = getCustomerList();
+    auto cutoffDate = DateTime(1997, 1, 1);
+    return customers.filter!(c => c.region == "WA")
+        .map!(c => c.orders.filter!(it => it.orderDate >= cutoffDate)
+                .map!(x => tuple(c.customerID, x.orderID))).joiner();
+}
+
 unittest
 {
     assert(equal(linq6(), [6, 5, 2, 4, 10, 9, 7, 8, 3, 1]));

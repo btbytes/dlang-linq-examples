@@ -85,4 +85,9 @@ void main()
     foreach (o; linq17())
         writefln("CustomerID=%s OrderID=%d Total=%.2f", o[0], o[1], o[2]);
 
+    writeln(
+            "\n discarding orders for customers outside of Washington and orders older than 1997/1/1");
+    foreach (o; linq18())
+        writefln("CustomerID=%s OrderID=%s", o[0], o[1]);
+
 }
