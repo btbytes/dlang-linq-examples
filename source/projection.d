@@ -3,6 +3,7 @@
 import std.algorithm;
 import std.array;
 import std.datetime;
+import std.format;
 import std.range;
 import std.typecons;
 import std.uni;
@@ -161,6 +162,18 @@ auto linq18()
     return customers.filter!(c => c.region == "WA")
         .map!(c => c.orders.filter!(it => it.orderDate >= cutoffDate)
                 .map!(x => tuple(c.customerID, x.orderID))).joiner();
+}
+
+/** SelectMany - Indexed
+* This sample uses an indexed SelectMany clause to select all orders,
+* while referring to customers by the order in which they are returned from the query.
+*/
+
+auto linq19()
+{
+    auto customers = getCustomerList();
+    return customers.enumerate.map!(e => tuple(e.value, e.index)).map!(cc => cc[0].orders.map!(
+            o => format!"Customer #%d has an order with OrderID %d"(cc[1] + 1, o.orderID))).joiner();
 }
 
 unittest

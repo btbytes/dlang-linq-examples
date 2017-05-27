@@ -10,7 +10,7 @@ Reference - See [Sebastian Wilzbach's "Feature mapping from LINQ to D Ranges" re
 ## Status
 
 - [x] Restriction Operators
-- [ ] Projection Operators
+- [x] Projection Operators
 - [ ] Partitioning Operators
 - [ ] Ordering Operators
 - [ ] Grouping Operators

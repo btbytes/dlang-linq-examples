@@ -90,4 +90,8 @@ void main()
     foreach (o; linq18())
         writefln("CustomerID=%s OrderID=%s", o[0], o[1]);
 
+    writeln("\nSelectMany - Indexed");
+    foreach (l; linq19())
+        writeln(l);
+
 }
