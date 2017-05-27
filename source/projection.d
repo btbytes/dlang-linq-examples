@@ -136,6 +136,18 @@ auto linq16()
             1, 1)).map!(x => tuple(c.customerID, x.orderID, x.orderDate))).joiner();
 }
 
+/** SelectMany - from Assignment
+* This sample uses a compound from clause to select all orders where the order total is greater than 2000.00 and uses from assignment to avoid requesting the total twice
+*/
+
+auto linq17()
+{
+    auto customers = getCustomerList();
+    return customers.map!(c => c.orders.filter!(it => it.total >= 2000.0)
+            .map!(x => tuple(c.customerID, x.orderID, x.total))).joiner();
+
+}
+
 unittest
 {
     assert(equal(linq6(), [6, 5, 2, 4, 10, 9, 7, 8, 3, 1]));

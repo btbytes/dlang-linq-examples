@@ -12,9 +12,8 @@ import data;
 */
 auto linq1()
 {
-    int[] numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
-    return numbers.filter!(a => a < 5).array;
-    // .array converts FilterResult range to array
+    auto numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
+    return numbers.filter!(a => a < 5);
 }
 
 /**Where - Simple 2

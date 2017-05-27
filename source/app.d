@@ -1,3 +1,4 @@
+import core.memory;
 import std.stdio;
 
 import data;
@@ -6,6 +7,7 @@ import projection;
 
 void main()
 {
+
     writeln("LINQ - Restriction Operators");
 
     writeln("\nNumbers < 5:");
@@ -78,4 +80,9 @@ void main()
     writeln("\norders where the order was made in 1998 or later.");
     foreach (o; linq16())
         writefln("CustomerID=%s OrderID=%d OrderDate=%s", o[0], o[1], o[2]);
+
+    writeln("\norders where the order total is greater than 2000.00.");
+    foreach (o; linq17())
+        writefln("CustomerID=%s OrderID=%d Total=%.2f", o[0], o[1], o[2]);
+
 }
