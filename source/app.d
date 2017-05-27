@@ -4,6 +4,7 @@ import std.stdio;
 import data;
 import restriction;
 import projection;
+import partitioning;
 
 void main()
 {
@@ -93,5 +94,11 @@ void main()
     writeln("\nSelectMany - Indexed");
     foreach (l; linq19())
         writeln(l);
+
+    /* Partioning Operations */
+
+    writeln("\nTake to get only the first 3 elements of the array.");
+    foreach (e; linq20())
+        writeln(e);
 
 }
