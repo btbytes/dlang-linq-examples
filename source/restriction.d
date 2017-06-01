@@ -1,7 +1,6 @@
 import std.algorithm;
 import std.array;
 import std.stdio;
-import std.stdio;
 import std.range;
 import data;
 
