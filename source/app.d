@@ -101,4 +101,8 @@ void main()
     foreach (e; linq20())
         writeln(e);
 
+    writeln("\nFirst three customers from Washington state.");
+    foreach(c; linq21())
+    writeln("")
+
 }
